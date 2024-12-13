@@ -1,7 +1,16 @@
 /** @type {import('eslint').Linter.Config} */
 module.exports = {
-  extends: ["eslint:recommended"],
+  plugins: ["jest"],
+  extends: ["eslint:recommended", "plugin:jest/recommended"],
   env: {
-    es2021: true,
+    "node": true,
+    "es2021": true
   },
+  overrides: [
+    {
+      files: ["*.test.js"],
+      plugins: ["jest"],
+      extends: ["plugin:jest/recommended"],
+    },
+  ],
 };
