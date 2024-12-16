@@ -9,10 +9,16 @@ const isPalindrome = (str) => {
   return sanitizedStr === reverseString(sanitizedStr);
 };
 
-module.exports = (str) => {
+const palindromes = (str) => {
   const sanitizedStr = prepareString(str);
   if (!isPalindrome(sanitizedStr)) {
     return [];
   }
   return [prepareString(str)];
 };
+
+// Attach helpers to the exported function for testing
+palindromes.prepareString = prepareString;
+palindromes.isPalindrome = isPalindrome;
+
+module.exports = palindromes;
